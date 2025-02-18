@@ -1,0 +1,32 @@
+# Set additional XDG Dirs as required
+export HISTFILE=$XDG_DATA_HOME/zsh/history
+
+# Path Configuration
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+
+# Default editor
+export EDITOR="zed --wait"
+
+# OhMyPosh Config https://ohmyposh.dev/docs/
+eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/config.toml)"
+
+# Load Atuin: https://atuin.sh/
+eval "$(atuin init zsh)"
+
+# Load Mise https://mise.jdx.dev/
+eval "$(mise activate zsh)"
+
+# Load supplementary configuration files
+if [ -d "$XDG_CONFIG_HOME/zsh/resources" ]; then
+	for file in "$XDG_CONFIG_HOME/zsh/resources"/*.zsh; do
+		[ -r "$file" ] && source "$file"
+	done
+fi
+
+# Better autocomplete
+autoload -Uz compinit && compinit -d "$ZCOMPDUMP"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'        # case-insensitive completion
+zstyle ':completion:*' menu select                            # menu selection
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"       # color completion
+
+fastfetch

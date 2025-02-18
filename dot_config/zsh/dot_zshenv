@@ -1,0 +1,19 @@
+# Configure XDG Base Directory
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_RUNTIME_DIR=/run/user/$UID
+
+# Configure apps to use XDG Directories
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh
+export ZCOMPDUMP="$XDG_CACHE_HOME"/zsh/zcompdump
+
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
+
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/config
+export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
+
+export LESSHISTFILE="$XDG_DATA_HOME/less/lesshst"
