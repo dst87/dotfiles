@@ -1,5 +1,8 @@
 {
-	"features": {
+	"outline_panel": {
+  "dock": "right"
+ },
+ "features": {
 		"edit_prediction_provider": "zed"
 	},
 	"vim_mode": true,
