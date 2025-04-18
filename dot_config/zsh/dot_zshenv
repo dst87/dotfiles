@@ -3,7 +3,19 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_STATE_HOME=$HOME/.local/state
-export XDG_RUNTIME_DIR=/run/user/$UID
+
+# Configure XDG Runtime Directory
+if [ "$(uname)" = "Linux" ]; then
+  export XDG_RUNTIME_DIR="/run/user/$UID"
+else
+  export XDG_RUNTIME_DIR="${TMPDIR}xdg-runtime-$UID"
+fi
+
+# Ensure XDG_RUNTIME_DIR exists
+if [ ! -d "$XDG_RUNTIME_DIR" ]; then
+  mkdir -p "$XDG_RUNTIME_DIR"
+  chmod 700 "$XDG_RUNTIME_DIR"
+fi
 
 # Configure apps to use XDG Directories
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
