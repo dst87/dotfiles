@@ -2,6 +2,9 @@
 	insteadOf = https://gitlab.1password.io{{ end }}
 [gpg]
 	format = ssh
+[alias]
+	co = checkout
+	getremote = !get fetch && git reset --hard @{u}
 [gpg "ssh"]
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [commit]
