@@ -1,8 +1,8 @@
 {
 	"outline_panel": {
-  "dock": "right"
- },
- "features": {
+		"dock": "right"
+	},
+	"features": {
 		"edit_prediction_provider": "zed"
 	},
 	"vim_mode": true,
@@ -11,8 +11,8 @@
 	},
 	"assistant": {
 		"default_model": {
-			"provider": "copilot_chat",
-			"model": "gpt-4o"
+			"provider": "zed.dev",
+			"model": "claude-3-5-sonnet-latest"
 		},
 		"version": "2"
 	},
