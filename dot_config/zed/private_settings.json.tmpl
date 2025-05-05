@@ -11,8 +11,13 @@
 	},
 	"assistant": {
 		"default_model": {
+			{{- if eq .chezmoi.hostname "test-track" }}
+			"provider": "openai",
+			"model": "gpt-4o"
+			{{- else }}
 			"provider": "zed.dev",
-			"model": "claude-3-5-sonnet-latest"
+			"model": "claude-3-7-sonnet-latest"
+			{{- end }}
 		},
 		"version": "2"
 	},
@@ -22,8 +27,8 @@
 	"tab_size": 3,
 	"theme": {
 		"mode": "system",
-		"light": "Dracula",
-		"dark": "Dracula"
+		"light": "Dracula Pro",
+		"dark": "Dracula Pro"
 	},
 	"terminal": {
 		"font_size": 13,
