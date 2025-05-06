@@ -3,7 +3,11 @@
 		"dock": "right"
 	},
 	"features": {
+		{{- if eq .chezmoi.hostname "test-track" }}
+		"edit_prediction_provider": "copilot"
+		{{- else }}
 		"edit_prediction_provider": "zed"
+		{{- end }}
 	},
 	"vim_mode": true,
 	"tab_bar": {
@@ -12,7 +16,7 @@
 	"assistant": {
 		"default_model": {
 			{{- if eq .chezmoi.hostname "test-track" }}
-			"provider": "openai",
+			"provider": "copilot_chat",
 			"model": "gpt-4o"
 			{{- else }}
 			"provider": "zed.dev",
@@ -37,6 +41,9 @@
 	},
 	"show_whitespaces": "boundary",
 	"format_on_save": "on",
+	{{- if eq .chezmoi.hostname "test-track" }}
+	"formatter": "prettier",
+	{{- end }}
 	"hard_tabs": true,
 	"restore_on_startup": "none"
 }
