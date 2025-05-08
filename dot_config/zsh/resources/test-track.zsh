@@ -11,3 +11,6 @@ alias yarn="op run --account agilebits --no-masking -- yarn"
 # Go Config for server
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# Aliases
+alias cdb5="cd $GOPATH/src/go.1password.io/b5"
